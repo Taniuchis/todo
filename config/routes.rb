@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :todo_lists
+  resources :todo_lists do
+  resources :todo_tasks
+  end
   get  'pages/about'
   get 'pages/index'
   devise_for :users
