@@ -1,20 +1,20 @@
 .pdf{
 	tr{
-	border-bottom: solid;
-	border-width: 3px;
-	font-size:100px;
-}
-.title{
-	font-size:200px;
-}
-td,th{
-	text-align:left;
-}
-th{
-	background-color:#000;
-	color:white;
-}
-table, tr, td, th, tbody, thead, tfoor{
-	page-break-inside: avoid !important;
-}
+		border-bottom: solid;
+		border-width: 3px;
+		font-size:100px;
+	}
+	.title{
+		font-size:200px;
+	}
+	td,th{
+		text-align:left;
+	}
+	th{
+		background-color:#000;
+		color:white;
+	}
+	table, tr, td, th, tbody, thead, tfoor{
+		page-break-inside: avoid !important;
+	}
 }
