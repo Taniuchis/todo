@@ -6,6 +6,11 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index
     @todo_lists = current_user.todo_lists
+    respond_to do |format|
+      format.html
+      format.csv { send_data @todo_lists.to_csv, filename: "users-#{Date.today}.csv" }
+    end
+
   end
 
   # GET /todo_lists/1
