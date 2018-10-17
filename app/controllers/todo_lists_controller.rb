@@ -8,7 +8,7 @@ class TodoListsController < ApplicationController
     @todo_lists = current_user.todo_lists
     respond_to do |format|
       format.html
-      format.csv { send_data @todo_lists.to_csv, filename: "users-#{Date.today}.csv" }
+      format.csv { send_data @todo_lists.to_csv, filename: "lists-#{Date.today}.csv" }
       format.pdf {render template: 'todo_lists/reporte', pdf: 'reporte', layout: 'pdf.html'}
     end
 

@@ -9,6 +9,7 @@
    <p style="opacity: 0.4;"><strike><%= todo_task.content %></strike></p>
   </div>
   <div class="trash">
+    <p><%= link_to 'Edit', edit_todo_list_todo_task_path(@todo_list, todo_task) %> </p>
    <%= link_to todo_list_todo_task_path(@todo_list, todo_task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
     <i class="fa fa-trash"></i>
     <% end %>

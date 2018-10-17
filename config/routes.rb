@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :todo_lists
+ resources :todo_lists
  resources :todo_lists do
    resources :todo_tasks do
     member do
