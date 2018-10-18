@@ -1,20 +1,23 @@
-require 'csv'
-class TodoList < ApplicationRecord
-	belongs_to :user
-	has_many :todo_tasks, dependent: :destroy
 
-	def self.all_todo_list_task
-  	TodoList.left_joins(:todo_tasks).select("todo_lists.*, todo_tasks.content as task").where(
+class TodoList < ApplicationRecord
+  belongs_to :user, optional: true
+  has_many :todo_tasks, dependent: :destroy
+
+  validates :title, presence: true
+  validates :description, presence: true
+
+  def self.all_todo_list_task
+    TodoList.left_joins(:todo_tasks).select("todo_lists.*, todo_tasks.content as task").where(
     "todo_lists.id > 0 OR
      todo_tasks.todo_list_id = todo_lists.id"
      )
   end
 
   def self.all_todo_list 
-  	TodoList.all
+    TodoList.all
   end
 
-	def self.to_csv
+  def self.to_csv
   CSV.generate do |csv|
     columns = %w(id title description task)
     csv << columns.map(&:humanize)
