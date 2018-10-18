@@ -1,6 +1,6 @@
 
 class TodoList < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   has_many :todo_tasks, dependent: :destroy
 
   validates :title, presence: true

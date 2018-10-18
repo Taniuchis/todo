@@ -73,5 +73,10 @@ gem 'wkhtmltopdf-binary'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+#gem for test
 gem 'rspec', '~> 3.8'
+#gem for image in profile devise
 gem 'paperclip'
+#gem for test
+gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+
