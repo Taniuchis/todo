@@ -79,4 +79,6 @@ gem 'rspec', '~> 3.8'
 gem 'paperclip'
 #gem for test
 gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+#gem 
+gem 'sidekiq'
 
