@@ -11,7 +11,12 @@ class TodoListsController < ApplicationController
       format.csv { send_data @todo_lists.to_csv, filename: "lists-#{Date.today}.csv" }
       format.pdf {render template: 'todo_lists/reporte', pdf: 'reporte', layout: 'pdf.html'}
     end
-
+     todo_lists_task = @todo_lists.pending_tasks
+     @user_mail = current_user
+    # UserNotifierMailer.task_email(@todo_lists_task, @user_mail).deliver_now
+    # UserNotifierMailer.task_email.deliver_later
+    #SendmailJob.perform_later params.permit(:todo_lists_task)[:todo_lists_task]
+     SendmailJob.set(wait: 1.week).perform_later
   end
 
   # GET /todo_lists/1
