@@ -6,17 +6,21 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index
     @todo_lists = current_user.todo_lists
+    #@todo_l = TodoList.new(todo_list_params)
     respond_to do |format|
       format.html
       format.csv { send_data @todo_lists.to_csv, filename: "lists-#{Date.today}.csv" }
       format.pdf {render template: 'todo_lists/reporte', pdf: 'reporte', layout: 'pdf.html'}
+      #SendmailJob.set(wait: 1.week).perform_later(@todo_l)
     end
      todo_lists_task = @todo_lists.pending_tasks
      @user_mail = current_user
-    # UserNotifierMailer.task_email(@todo_lists_task, @user_mail).deliver_now
+     #UserNotifierMailer.task_email(@todo_lists_task, @user_mail).deliver_now
     # UserNotifierMailer.task_email.deliver_later
     #SendmailJob.perform_later params.permit(:todo_lists_task)[:todo_lists_task]
-     SendmailJob.set(wait: 1.week).perform_later
+    #hash = @todo_lists_task.as_json
+    #@user_mail.as_json.to_json
+    SendmailJob.set(wait: 1.week).perform_later 
   end
 
   # GET /todo_lists/1

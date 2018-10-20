@@ -4,7 +4,7 @@ class UserNotifierMailer < ApplicationMailer
   def task_email(todo_lists_task, user_mail)
   	 @todo_lists = todo_lists_task
   	 @user_mail = user_mail
-    mail(to: 'tania.m.jimenez24@gmail.com', subject: 'Welcome to My Awesome Site')
+    mail(to: @user_mail.email , subject: 'You have pending tasks')
   end
 
   # def task_email()

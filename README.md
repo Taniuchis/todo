@@ -1,24 +1,37 @@
+<a name="usage"></a>
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was generated with Ruby version 2.3.3
 
-Things you may want to cover:
+Multiple lists of todo task can be generated. Each todo list contains its own todo tasks. These can be marked as completed or deleted.
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+Install all dependancies:
 
-* Configuration
+```
+$ bundle install
+```
 
-* Database creation
+Create the database and run migrations:
 
-* Database initialization
+```
+$ rake db:create db:migrate
+```
 
-* How to run the test suite
+Start the server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ rails server
+```
 
-* Deployment instructions
+You need to install redis for the emails 
+```
+$ brew install redis 
+```
 
-* ...
+And start the service
+```
+brew services start redis
+```
