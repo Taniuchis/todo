@@ -7,8 +7,7 @@ class UserNotifierMailer < ApplicationMailer
     mail(to: @user_mail.email , subject: 'You have pending tasks')
   end
 
-  # def task_email()
-  	
+  # def task_email()	
   #   mail(to: 'tania.m.jimenez24@gmail.com', subject: 'Welcome to My Awesome Site')
   # end
 end
